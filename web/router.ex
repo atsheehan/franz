@@ -16,6 +16,7 @@ defmodule Franz.Router do
   scope "/", Franz do
     pipe_through :browser # Use the default browser stack
 
+    get "/messages", MessageController, :index
     get "/", PageController, :index
   end
 

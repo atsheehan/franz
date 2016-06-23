@@ -1,0 +1,7 @@
+<h1>Messages</h1>
+
+<ul>
+  <%= for message <- @messages do %>
+    <li><%= message.body %></li>
+  <% end %>
+</ul>
