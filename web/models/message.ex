@@ -1,3 +1,9 @@
 defmodule Franz.Message do
-  defstruct [:id, :body]
+  use Franz.Web, :model
+
+  schema "messages" do
+    field :body, :string
+
+    timestamps
+  end
 end

@@ -10,7 +10,7 @@ defmodule Franz do
       # Start the endpoint when the application starts
       supervisor(Franz.Endpoint, []),
       # Start the Ecto repository
-      # supervisor(Franz.Repo, []),
+      supervisor(Franz.Repo, []),
       # Here you could define other workers and supervisors as children
       # worker(Franz.Worker, [arg1, arg2, arg3]),
     ]
