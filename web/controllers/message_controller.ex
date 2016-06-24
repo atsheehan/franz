@@ -12,8 +12,8 @@ defmodule Franz.MessageController do
   def create(conn, %{"message" => message_params}) do
     changeset = Message.changeset(%Message{}, message_params)
 
-    case Repo.insert(changeset) do
-      {:ok, message} ->
+    case Repo.append_to_log(changeset) do
+      {:ok, _changeset} ->
         conn
         |> put_flash(:info, "Message saved.")
         |> redirect(to: message_path(conn, :index))

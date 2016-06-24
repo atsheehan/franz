@@ -17,6 +17,8 @@ $ brew services start kafka
 
 Zookeeper is running on port 2181, Kafka on port 9092.
 
+### Web Application
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
@@ -25,3 +27,13 @@ To start your Phoenix app:
   * Start Phoenix endpoint with `mix phoenix.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+### Kafka Worker
+
+There is a separate process that streams messages from Kafka and writes them to Postgres.
+
+```
+$ mix run lib/ingest/writer.exs
+```
+
+Not sure what the best way to run this is in the context of an Elixir/OTP application.
