@@ -17,7 +17,7 @@ defmodule Franz.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/messages", MessageController, only: [:index, :new, :create]
+    resources "/messages", MessageController, only: [:index, :create]
   end
 
   # Other scopes may use custom stacks.

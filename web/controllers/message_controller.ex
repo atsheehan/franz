@@ -5,12 +5,8 @@ defmodule Franz.MessageController do
 
   def index(conn, _params) do
     messages = Repo.all(Message)
-    render conn, "index.html", messages: messages
-  end
-
-  def new(conn, _params) do
     changeset = Message.changeset(%Message{})
-    render conn, "new.html", changeset: changeset
+    render conn, "index.html", messages: messages, changeset: changeset
   end
 
   def create(conn, %{"message" => message_params}) do
@@ -22,7 +18,8 @@ defmodule Franz.MessageController do
         |> put_flash(:info, "Message saved.")
         |> redirect(to: message_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        messages = Repo.all(Message)
+        render(conn, "index.html", messages: messages, changeset: changeset)
     end
   end
 end
