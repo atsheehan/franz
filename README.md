@@ -7,6 +7,16 @@ This design was inspired by Martin Kleppman's talk ["Turning the database inside
 
 ## Setup
 
+Installing Kafka:
+
+```
+$ brew install kafka
+$ brew services start zookeeper
+$ brew services start kafka
+```
+
+Zookeeper is running on port 2181, Kafka on port 9092.
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
